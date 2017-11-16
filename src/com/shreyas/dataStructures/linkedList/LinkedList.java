@@ -1,22 +1,37 @@
 package com.shreyas.dataStructures.linkedList;
 
-public class LinkedListInsertion {
+public class LinkedList {
 	Node head;
 
 	public static void main(String[] args) {
-		LinkedListInsertion insertion = new LinkedListInsertion();
-		insertion.addNode(1);
-		insertion.addNode(5);
-		insertion.addNode(9);
-		insertion.addNode(10);
-		insertion.addNode(2);
-		insertion.addNode(19);
+		LinkedList linkedList = new LinkedList();
+		linkedList.addNode(1);
+		linkedList.addNode(5);
+		linkedList.addNode(9);
+		linkedList.addNode(10);
+		linkedList.addNode(2);
+		linkedList.addNode(19);
 
-		insertion.addAtFront(0);
+		linkedList.addAtFront(0);
 
-		insertion.addAfter(10, 11);
+		linkedList.addAfter(10, 11);
+		
+		linkedList.delete(10);
 
-		insertion.printNodes();
+		linkedList.printNodes();
+	}
+
+	private void delete(int i) {
+		// TODO Auto-generated method stub
+		Node temp = head;
+		Node prev = null;
+		
+		while(temp.data != i){
+			prev = temp;
+			temp = temp.next;
+		}
+		
+		prev.next = temp.next;
 	}
 
 	private void addAfter(int i, int j) {
