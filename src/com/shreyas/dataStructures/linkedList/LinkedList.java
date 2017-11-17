@@ -16,9 +16,42 @@ public class LinkedList {
 
 		linkedList.addAfter(10, 11);
 		
-		linkedList.delete(10);
+		//linkedList.delete(10);
+		
+		linkedList.swap(5, 9);
 
 		linkedList.printNodes();
+	}
+
+	private void swap(int i, int j) {
+		// TODO Auto-generated method stub
+		Node temp = head;
+		Node prev = null;
+		
+		while(temp.data != i){
+			prev = temp;
+			temp = temp.next;
+		}
+		
+		
+		Node jTemp = head;
+		Node next = null;
+		
+		
+		while(jTemp.data != j){
+			jTemp = jTemp.next;
+			
+			if(jTemp.next != null){
+				next = jTemp.next;
+			}else{
+				next = null;
+			}
+		}
+		
+		prev.next = jTemp;
+		temp.next = next;
+		jTemp.next = temp;
+		
 	}
 
 	private void delete(int i) {
